@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Teacher | Malala Elementary PTO | Texas</title>
+  <meta name="description" content="Malala Elementary FBISD Parent Teacher Organization" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Home-only: hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 55%, var(--purple-mid) 100%);
+      padding: 64px 20px 56px;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-text { color: var(--white); }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: var(--gold);
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+    .hero-text p { font-size: clamp(.95rem, 2vw, 1.1rem); opacity: .85; line-height: 1.7; color: var(--white); }
+    .hero-cta { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-images { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-images img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; box-shadow: var(--shadow-lg); }
+    .hero-images img:first-child { grid-column: 1/-1; aspect-ratio: 16/7; }
+
+    /* sponsors */
+    .sponsors { background: var(--gray-50); }
+    .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 16px; }
+    .sponsor-card {
+      background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+      padding: 18px 14px; display: flex; align-items: center; justify-content: center;
+      min-height: 100px; box-shadow: var(--shadow-sm);
+      transition: box-shadow .25s, transform .25s;
+    }
+    .sponsor-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .sponsor-card img { max-height: 72px; max-width: 130px; width: auto; height: auto; object-fit: contain; filter: grayscale(25%); transition: filter .25s; }
+    .sponsor-card:hover img { filter: grayscale(0%); }
+    .section { padding: 64px 20px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 44px; }
+    .section-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--gray-900); margin-top: 10px; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 40px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero-images { display: none; }
+      .sponsors-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 36px 16px 32px; }
+      .section { padding: 48px 16px; }
+      .sponsors-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .sponsor-card { min-height: 86px; padding: 14px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="topbar">
+      <a href="https://www.facebook.com/groups/malalapto/about/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://static.wixstatic.com/media/11062b_e1117f9a7a1741ef955a84836121c4ad~mv2.png" alt="Facebook" /></a>
+      <a href="https://www.instagram.com/malalapto/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://static.wixstatic.com/media/11062b_94a6580a67244d17a4dc923b54b99fb4~mv2.png" alt="Instagram" /></a>
+      <a href="https://twitter.com/malalapto" target="_blank" rel="noopener" aria-label="Twitter"><img src="https://static.wixstatic.com/media/11062b_dddc4f38b4d0473c98be1489c5a83f30~mv2.png" alt="Twitter" /></a>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="https://static.wixstatic.com/media/a217a9_a146767326124b1bb885d36cfcf2162b~mv2.png" alt="Malala PTO Logo" /></a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="has-sub"><a href="pto-info.html">About Us</a><ul class="submenu"><li><a href="pto-board.html">PTO Board</a></li></ul></li>
+          <li class="has-sub"><a href="support-mye.html">Support Malala</a><ul class="submenu"><li><a href="https://malala-elementary-pto.square.site/" target="_blank">Spirit Wear</a></li><li><a href="sponsorship.html">Sponsorship</a></li><li><a href="vips.html">VIPS</a></li></ul></li>
+          <li class="has-sub"><a href="membership.html">Membership</a><ul class="submenu"><li><a href="join-the-pto.html">Join the PTO</a></li><li><a href="meetings.html">Meetings</a></li><li><a href="calendar.html">Calendar</a></li></ul></li>
+          <li class="has-sub"><a href="#">Gallery</a><ul class="submenu"><li><a href="b2sb-gallery.html">B2SB Gallery 23–24</a></li><li><a href="a-rating-gallery.html">"A" Rating Celebration</a></li></ul></li>
+          <li class="has-sub"><a href="#">Useful Links</a><ul class="submenu"><li><a href="https://www.fortbendisd.com/mye" target="_blank">MYE Website</a></li><li><a href="https://www.fortbendisd.com/cms/lib/TX01917858/Centricity/Domain/4/20242025FBISDInstructionalCalendarEnglish.pdf" target="_blank">FBISD Calendar</a></li><li><a href="https://www.fortbendisd.com/Page/133013" target="_blank">Background Check</a></li></ul></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><span class="section-label">About Us</span></li>
+      <li><a href="pto-info.html">About Us</a></li>
+      <li class="sub-item"><a href="pto-board.html">PTO Board</a></li>
+      <li><span class="section-label">Support Malala</span></li>
+      <li><a href="support-mye.html">Support Malala</a></li>
+      <li class="sub-item"><a href="https://malala-elementary-pto.square.site/" target="_blank">Spirit Wear</a></li>
+      <li class="sub-item"><a href="sponsorship.html">Sponsorship</a></li>
+      <li class="sub-item"><a href="vips.html">VIPS</a></li>
+      <li><span class="section-label">Membership</span></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li class="sub-item"><a href="join-the-pto.html">Join the PTO</a></li>
+      <li class="sub-item"><a href="meetings.html">Meetings</a></li>
+      <li class="sub-item"><a href="calendar.html">Calendar</a></li>
+      <li><span class="section-label">Gallery</span></li>
+      <li class="sub-item"><a href="b2sb-gallery.html">B2SB Gallery 23–24</a></li>
+      <li class="sub-item"><a href="a-rating-gallery.html">"A" Rating Celebration</a></li>
+      <li><span class="section-label">Useful Links</span></li>
+      <li class="sub-item"><a href="https://www.fortbendisd.com/mye" target="_blank">MYE Website</a></li>
+      <li class="sub-item"><a href="https://www.fortbendisd.com/cms/lib/TX01917858/Centricity/Domain/4/20242025FBISDInstructionalCalendarEnglish.pdf" target="_blank">FBISD Calendar</a></li>
+      <li class="sub-item"><a href="https://www.fortbendisd.com/Page/133013" target="_blank">Background Check</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">FBISD · Fort Bend, Texas</div>
+        <h1>Malala Elementary<br/>Parent Teacher<br/>Organization</h1>
+        <p>Building community, supporting students, and empowering families at Malala Elementary.</p>
+        <div class="hero-cta">
+          <a href="join-the-pto.html" class="btn btn-primary">Join the PTO</a>
+          <a href="pto-info.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:white;">About Us</a>
+        </div>
+      </div>
+      <div class="hero-images" aria-hidden="true">
+        <img src="https://static.wixstatic.com/media/a217a9_e2cd66b3687649d191b5969931d2d80a~mv2.png" alt="Malala Elementary A Rating" />
+        <img src="https://static.wixstatic.com/media/a217a9_e302775baf934f28ad5eaa2b785cad75~mv2.png" alt="Malala Elementary" />
+        <img src="https://static.wixstatic.com/media/a217a9_ea2e1cf4742b4d85826727d2292d01ac~mv2.png" alt="Malala PTO" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsors -->
+  <section class="section sponsors">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="pill">Thank You</span>
+        <h2>2025–2026 Sponsors</h2>
+      </div>
+      <div class="sponsors-grid">
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_e6b5df3fabf04a78810264fb2ea47b54~mv2.png" alt="Elara Orthodontics" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_dd62ddad0c8f422ba51b34b023138416~mv2.png" alt="Mona Tshirt" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_d0fdfc88ba5843deb5ea55c33fae5b91~mv2.png" alt="Violet Music Academy" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_d045d62313ba452caa715122035fbb0c~mv2.png" alt="i9 Sports" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_89587c753388491eb808ff507dd1eb3f~mv2.png" alt="Ezee Fiber" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_f3f130f687e64dceaf48a660fa2a05be~mv2.png" alt="Sponsor" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_70f03bfbb2a54f4ab122f0ee3701c2ee~mv2.png" alt="Sponsor" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_eb48a8051653466d969f1c168d4792aa~mv2.png" alt="Indigo Orthodontics" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_9f871d4b654647d39bf6106a2ba3ab18~mv2.jpg" alt="Smile Studio" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_8773e3c441404355a29497928df01d71~mv2.jpg" alt="Imperial Orthodontics" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_8a9b8c513f2840b99d8941abb3d35351~mv2.jpg" alt="Luna Pediatric" loading="lazy" /></div>
+        <div class="sponsor-card"><img src="https://static.wixstatic.com/media/a217a9_9e80fe55c56a446099a681ab1cec812b~mv2.png" alt="Sponsor" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img src="https://static.wixstatic.com/media/a217a9_a146767326124b1bb885d36cfcf2162b~mv2.png" alt="Malala PTO Logo" />
+          <div><div class="footer-brand-name">Malala Elementary PTO</div><div class="footer-brand-sub">Fort Bend ISD · Texas</div></div>
+        </div>
+        <p class="footer-desc">Malala Elementary FBISD Parent Teacher Organization — connecting families and staff to support every student's success.</p>
+        <nav class="footer-social" aria-label="Social media">
+          <a href="https://www.facebook.com/groups/malalapto/about/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://static.wixstatic.com/media/11062b_e1117f9a7a1741ef955a84836121c4ad~mv2.png" alt="" /></a>
+          <a href="https://www.instagram.com/malalapto/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://static.wixstatic.com/media/11062b_94a6580a67244d17a4dc923b54b99fb4~mv2.png" alt="" /></a>
+          <a href="https://twitter.com/malalapto" target="_blank" rel="noopener" aria-label="Twitter"><img src="https://static.wixstatic.com/media/11062b_dddc4f38b4d0473c98be1489c5a83f30~mv2.png" alt="" /></a>
+        </nav>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="pto-info.html">About Us</a></li>
+          <li><a href="join-the-pto.html">Join the PTO</a></li>
+          <li><a href="sponsorship.html">Sponsorship</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="https://www.fortbendisd.com/mye" target="_blank">MYE Website</a></li>
+          <li><a href="https://www.fortbendisd.com/Page/133013" target="_blank">Background Check</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Malala Elementary PTO. All rights reserved.</div>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
