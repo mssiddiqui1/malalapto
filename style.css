@@ -5,11 +5,11 @@
 /* ── Reset & tokens ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --purple:       #5b21b6;
-  --purple-dark:  #3b0f8c;
-  --purple-mid:   #7c3aed;
-  --purple-light: #ede9fe;
-  --gold:         #f59e0b;
+  --purple:       #E8621A;   /* Leopard orange  */
+  --purple-dark:  #111111;   /* near-black       */
+  --purple-mid:   #F97316;   /* lighter orange   */
+  --purple-light: #FFF3E0;   /* warm cream       */
+  --gold:         #FFB800;   /* amber accent     */
   --white:        #ffffff;
   --gray-50:      #f9fafb;
   --gray-100:     #f3f4f6;
@@ -20,9 +20,9 @@
   --gray-900:     #111827;
   --radius:       12px;
   --radius-sm:    8px;
-  --shadow-sm:    0 1px 3px rgba(0,0,0,.08);
-  --shadow:       0 4px 16px rgba(0,0,0,.10);
-  --shadow-lg:    0 10px 40px rgba(0,0,0,.16);
+  --shadow-sm:    0 1px 3px rgba(0,0,0,.10);
+  --shadow:       0 4px 16px rgba(0,0,0,.13);
+  --shadow-lg:    0 10px 40px rgba(0,0,0,.20);
 }
 
 html { scroll-behavior: smooth; }
@@ -105,7 +105,12 @@ nav {
 }
 .nav-links > li > a:hover,
 .nav-links > li:hover > a { background: var(--purple-light); color: var(--purple); }
-.nav-links > li > a.active { color: var(--purple); font-weight: 600; }
+.nav-links > li > a.active {
+  color: var(--purple);
+  font-weight: 700;
+  border-bottom: 3px solid var(--purple);
+  border-radius: 0;
+}
 
 /* chevron */
 .nav-links > li.has-sub > a::after {
@@ -178,7 +183,7 @@ nav {
   position: fixed;
   left: 0; right: 0; bottom: 0;
   background: var(--white);
-  border-top: 2px solid var(--purple-light);
+  border-top: 3px solid var(--purple);
   box-shadow: var(--shadow-lg);
   z-index: 190;
   overflow-y: auto;
@@ -219,10 +224,11 @@ nav {
 
 /* ══ PAGE BANNER (inner pages) ══ */
 .page-banner {
-  background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 60%, var(--purple-mid) 100%);
+  background: linear-gradient(135deg, var(--purple-dark) 0%, #2a2a2a 40%, var(--purple) 100%);
   padding: 56px 20px 52px;
   text-align: center;
   color: var(--white);
+  border-bottom: 4px solid var(--purple);
 }
 .page-banner .breadcrumb {
   display: flex;
@@ -346,9 +352,9 @@ h3.card-title {
   text-align: center;
   color: var(--white);
 }
-.tier-card.platinum .tier-header { background: linear-gradient(135deg, #6b7280, #9ca3af); }
-.tier-card.gold     .tier-header { background: linear-gradient(135deg, #b45309, #f59e0b); }
-.tier-card.silver   .tier-header { background: linear-gradient(135deg, #6b7280, #d1d5db); }
+.tier-card.platinum .tier-header { background: linear-gradient(135deg, #111111, #3d3d3d); }
+.tier-card.gold     .tier-header { background: linear-gradient(135deg, #E8621A, #FFB800); }
+.tier-card.silver   .tier-header { background: linear-gradient(135deg, #555555, #9ca3af); }
 .tier-card .tier-header img { width: 80px; margin: 0 auto 12px; border-radius: 8px; }
 .tier-card .tier-header h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.4rem; }
 .tier-card .tier-header .price { font-size: 1.8rem; font-weight: 700; margin-top: 4px; }
@@ -507,7 +513,7 @@ footer {
   align-items: start;
 }
 .footer-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
-.footer-brand img { height: 54px; filter: brightness(0) invert(1); opacity: .9; }
+.footer-brand img { height: 54px;  opacity: .9; }
 .footer-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; color: var(--white); }
 .footer-brand-sub  { font-size: .82rem; opacity: .65; margin-top: 2px; }
 .footer-desc { font-size: .88rem; line-height: 1.75; max-width: 400px; }
@@ -520,7 +526,7 @@ footer {
   transition: background .2s;
 }
 .footer-social a:hover { background: rgba(255,255,255,.25); }
-.footer-social img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
+.footer-social img { width: 18px; height: 18px; }
 .footer-links h4 {
   font-size: .78rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
