@@ -169,4 +169,27 @@
     </div>
   </div>
   <div class="footer-bottom">© 2025 Malala Elementary PTO. All rights reserved.</div>
-</footer
+</footer>
+
+<!-- Lightbox overlay -->
+<div id="img-lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out;" onclick="closeLightbox()">
+  <button onclick="event.stopPropagation(); closeLightbox();" style="position:absolute; top:18px; right:24px; background:rgba(255,255,255,.15); border:none; color:#fff; font-size:2rem; line-height:1; width:44px; height:44px; border-radius:50%; cursor:pointer;">×</button>
+  <img id="lightbox-img" src="" alt="" style="max-width:92vw; max-height:90vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5);" onclick="event.stopPropagation()" />
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    const lb = document.getElementById('img-lightbox');
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('img-lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
