@@ -68,6 +68,62 @@
     .section-header { text-align: center; margin-bottom: 44px; }
     .section-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--gray-900); margin-top: 10px; }
 
+    /* ── Stay Connected / Social Cards ── */
+    .social-section { background: var(--gray-50); }
+    .social-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .social-card {
+      display: block; text-decoration: none;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.10);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .social-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.16); }
+    .fb-card { background: linear-gradient(145deg, #1877F2 0%, #0c4bac 100%); }
+    .ig-card { background: linear-gradient(145deg, #833ab4 0%, #fd1d1d 55%, #fcb045 100%); }
+    .x-card  { background: linear-gradient(145deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); }
+    .social-card-inner {
+      padding: 32px 28px 28px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .social-icon-wrap {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .social-card-text { flex: 1; }
+    .social-platform {
+      display: block; font-size: .78rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.75); margin-bottom: 6px;
+    }
+    .social-handle {
+      display: block; font-size: 1.25rem; font-weight: 800;
+      color: white; margin-bottom: 10px; line-height: 1.2;
+    }
+    .social-desc {
+      font-size: .9rem; color: rgba(255,255,255,.82);
+      line-height: 1.6; margin: 0;
+    }
+    .social-cta-row { margin-top: 4px; }
+    .social-btn {
+      display: inline-block;
+      padding: 11px 24px;
+      border-radius: 100px;
+      font-size: .9rem; font-weight: 700;
+      background: rgba(255,255,255,.2);
+      color: white;
+      border: 2px solid rgba(255,255,255,.5);
+      transition: background .2s, border-color .2s;
+    }
+    .social-card:hover .social-btn {
+      background: rgba(255,255,255,.32);
+      border-color: rgba(255,255,255,.8);
+    }
+
     @media (max-width: 768px) {
       .hero { padding: 48px 20px 40px; }
       .hero-inner { grid-template-columns: 1fr; gap: 24px; }
@@ -95,6 +151,7 @@
         aspect-ratio: 4/3 !important;
       }
       .sponsors-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .social-cards-grid { grid-template-columns: 1fr; gap: 16px; }
     }
     @media (max-width: 480px) {
       .hero { padding: 36px 16px 32px; }
@@ -106,6 +163,7 @@
   </style>
 </head>
 <body>
+<div id="fb-root"></div>
 
   <header class="site-header" id="site-header">
     <div class="topbar">
@@ -118,11 +176,41 @@
         <a href="index.html" class="nav-logo"><img src="https://static.wixstatic.com/media/a217a9_a146767326124b1bb885d36cfcf2162b~mv2.png" alt="Malala PTO Logo" /></a>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
-          <li class="has-sub"><a href="pto-info.html">About Us</a><ul class="submenu"><li><a href="pto-board.html">PTO Board</a></li></ul></li>
-          <li class="has-sub"><a href="support-mye.html">Support Malala</a><ul class="submenu"><li><a href="https://malala-elementary-pto.square.site/" target="_blank">Spirit Wear</a></li><li><a href="sponsorship.html">Sponsorship</a></li><li><a href="vips.html">VIPS</a></li></ul></li>
-          <li class="has-sub"><a href="membership.html">Membership</a><ul class="submenu"><li><a href="join-the-pto.html">Join the PTO</a></li><li><a href="meetings.html">Meetings</a></li><li><a href="calendar.html">Calendar</a></li></ul></li>
-          <li class="has-sub"><a href="#">Gallery</a><ul class="submenu"><li><a href="b2sb-gallery.html">B2SB Gallery 23–24</a></li><li><a href="a-rating-gallery.html">"A" Rating Celebration</a></li></ul></li>
-          <li class="has-sub"><a href="#">Useful Links</a><ul class="submenu"><li><a href="https://www.fortbendisd.com/mye" target="_blank">MYE Website</a></li><li><a href="https://www.fortbendisd.com/cms/lib/TX01917858/Centricity/Domain/4/20242025FBISDInstructionalCalendarEnglish.pdf" target="_blank">FBISD Calendar</a></li><li><a href="https://www.fortbendisd.com/Page/133013" target="_blank">Background Check</a></li></ul></li>
+          <li class="has-sub"><a href="#">About</a>
+            <div class="mega-panel">
+              <a href="pto-info.html" class="mega-link"><span class="mega-icon">🏫</span>About the PTO</a>
+              <a href="pto-board.html" class="mega-link"><span class="mega-icon">👥</span>Board of Directors</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#">Support Us</a>
+            <div class="mega-panel">
+              <a href="support-mye.html" class="mega-link"><span class="mega-icon">❤️</span>How to Help</a>
+              <a href="https://malala-elementary-pto.square.site/" target="_blank" class="mega-link"><span class="mega-icon">👕</span>Spirit Wear</a>
+              <a href="sponsorship.html" class="mega-link"><span class="mega-icon">🤝</span>Sponsorship</a>
+              <a href="vips.html" class="mega-link"><span class="mega-icon">🙋</span>Volunteer (VIPS)</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#">Get Involved</a>
+            <div class="mega-panel">
+              <a href="membership.html" class="mega-link"><span class="mega-icon">🎟️</span>Membership</a>
+              <a href="join-the-pto.html" class="mega-link"><span class="mega-icon">✋</span>Join the PTO</a>
+              <a href="meetings.html" class="mega-link"><span class="mega-icon">📅</span>Meetings</a>
+              <a href="calendar.html" class="mega-link"><span class="mega-icon">🗓️</span>Calendar</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#">Gallery</a>
+            <div class="mega-panel">
+              <a href="b2sb-gallery.html" class="mega-link"><span class="mega-icon">📸</span>B2SB Gallery 23–24</a>
+              <a href="a-rating-gallery.html" class="mega-link"><span class="mega-icon">🏆</span>"A" Rating Celebration</a>
+            </div>
+          </li>
+          <li class="has-sub"><a href="#">Resources</a>
+            <div class="mega-panel">
+              <a href="https://www.fortbendisd.com/mye" target="_blank" class="mega-link"><span class="mega-icon">🌐</span>MYE Website</a>
+              <a href="https://www.fortbendisd.com/cms/lib/TX01917858/Centricity/Domain/4/20242025FBISDInstructionalCalendarEnglish.pdf" target="_blank" class="mega-link"><span class="mega-icon">📆</span>District Calendar</a>
+              <a href="https://www.fortbendisd.com/Page/133013" target="_blank" class="mega-link"><span class="mega-icon">✅</span>Background Check</a>
+            </div>
+          </li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
       </div>
@@ -130,30 +218,30 @@
   </header>
 
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><span class="section-label">About Us</span></li>
-      <li><a href="pto-info.html">About Us</a></li>
-      <li class="sub-item"><a href="pto-board.html">PTO Board</a></li>
-      <li><span class="section-label">Support Malala</span></li>
-      <li><a href="support-mye.html">Support Malala</a></li>
-      <li class="sub-item"><a href="https://malala-elementary-pto.square.site/" target="_blank">Spirit Wear</a></li>
-      <li class="sub-item"><a href="sponsorship.html">Sponsorship</a></li>
-      <li class="sub-item"><a href="vips.html">VIPS</a></li>
-      <li><span class="section-label">Membership</span></li>
-      <li><a href="membership.html">Membership</a></li>
-      <li class="sub-item"><a href="join-the-pto.html">Join the PTO</a></li>
-      <li class="sub-item"><a href="meetings.html">Meetings</a></li>
-      <li class="sub-item"><a href="calendar.html">Calendar</a></li>
-      <li><span class="section-label">Gallery</span></li>
-      <li class="sub-item"><a href="b2sb-gallery.html">B2SB Gallery 23–24</a></li>
-      <li class="sub-item"><a href="a-rating-gallery.html">"A" Rating Celebration</a></li>
-      <li><span class="section-label">Useful Links</span></li>
-      <li class="sub-item"><a href="https://www.fortbendisd.com/mye" target="_blank">MYE Website</a></li>
-      <li class="sub-item"><a href="https://www.fortbendisd.com/cms/lib/TX01917858/Centricity/Domain/4/20242025FBISDInstructionalCalendarEnglish.pdf" target="_blank">FBISD Calendar</a></li>
-      <li class="sub-item"><a href="https://www.fortbendisd.com/Page/133013" target="_blank">Background Check</a></li>
-    </ul>
-  </div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><span class="section-label">About</span></li>
+    <li class="sub-item"><a href="pto-info.html">About the PTO</a></li>
+    <li class="sub-item"><a href="pto-board.html">Board of Directors</a></li>
+    <li><span class="section-label">Support Us</span></li>
+    <li class="sub-item"><a href="support-mye.html">How to Help</a></li>
+    <li class="sub-item"><a href="https://malala-elementary-pto.square.site/" target="_blank">Spirit Wear</a></li>
+    <li class="sub-item"><a href="sponsorship.html">Sponsorship</a></li>
+    <li class="sub-item"><a href="vips.html">Volunteer (VIPS)</a></li>
+    <li><span class="section-label">Get Involved</span></li>
+    <li class="sub-item"><a href="membership.html">Membership</a></li>
+    <li class="sub-item"><a href="join-the-pto.html">Join the PTO</a></li>
+    <li class="sub-item"><a href="meetings.html">Meetings</a></li>
+    <li class="sub-item"><a href="calendar.html">Calendar</a></li>
+    <li><span class="section-label">Gallery</span></li>
+    <li class="sub-item"><a href="b2sb-gallery.html">B2SB Gallery 23–24</a></li>
+    <li class="sub-item"><a href="a-rating-gallery.html">"A" Rating Celebration</a></li>
+    <li><span class="section-label">Resources</span></li>
+    <li class="sub-item"><a href="https://www.fortbendisd.com/mye" target="_blank">MYE Website</a></li>
+    <li class="sub-item"><a href="https://www.fortbendisd.com/cms/lib/TX01917858/Centricity/Domain/4/20242025FBISDInstructionalCalendarEnglish.pdf" target="_blank">District Calendar</a></li>
+    <li class="sub-item"><a href="https://www.fortbendisd.com/Page/133013" target="_blank">Background Check</a></li>
+  </ul>
+</div>
 
   <!-- Hero -->
   <section class="hero">
@@ -199,7 +287,73 @@
     </div>
   </section>
 
-  <footer>
+  <!-- ── Stay Connected ── -->
+  <section class="section social-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="pill">Stay Connected</span>
+        <h2>Join Our Community</h2>
+        <p style="color:var(--gray-600);margin-top:8px;font-size:.97rem;">Get the latest news, event photos, and updates — directly in your feed.</p>
+      </div>
+
+      <div class="social-cards-grid">
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/groups/malalapto/" target="_blank" rel="noopener" class="social-card fb-card">
+          <div class="social-card-inner">
+            <div class="social-icon-wrap fb-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <div class="social-card-text">
+              <span class="social-platform">Facebook Group</span>
+              <strong class="social-handle">Malala Elementary PTO</strong>
+              <p class="social-desc">Event announcements, volunteer sign-ups, school updates, and community discussions — all in one place.</p>
+            </div>
+            <div class="social-cta-row">
+              <span class="social-btn fb-btn">Join the Group &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/malalapto/" target="_blank" rel="noopener" class="social-card ig-card">
+          <div class="social-card-inner">
+            <div class="social-icon-wrap ig-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <div class="social-card-text">
+              <span class="social-platform">Instagram</span>
+              <strong class="social-handle">@malalapto</strong>
+              <p class="social-desc">Behind-the-scenes moments, event highlights, and photos from school activities throughout the year.</p>
+            </div>
+            <div class="social-cta-row">
+              <span class="social-btn ig-btn">Follow Us &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- X / Twitter -->
+        <a href="https://x.com/MYE_Leopards" target="_blank" rel="noopener" class="social-card x-card">
+          <div class="social-card-inner">
+            <div class="social-icon-wrap x-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div class="social-card-text">
+              <span class="social-platform">X (Twitter)</span>
+              <strong class="social-handle">@MYE_Leopards</strong>
+              <p class="social-desc">Quick updates, school news, and Leopard pride — follow along for real-time announcements from Malala Elementary.</p>
+            </div>
+            <div class="social-cta-row">
+              <span class="social-btn x-btn">Follow on X &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
     <div class="footer-inner">
       <div>
         <div class="footer-brand">
@@ -207,16 +361,11 @@
           <div><div class="footer-brand-name">Malala Elementary PTO</div><div class="footer-brand-sub">Fort Bend ISD · Texas</div></div>
         </div>
         <p class="footer-desc">Malala Elementary FBISD Parent Teacher Organization — connecting families and staff to support every student's success.</p>
-        <nav class="footer-social" aria-label="Social media">
-          <a href="https://www.facebook.com/groups/malalapto/about/" target="_blank" rel="noopener" aria-label="Facebook"><img src="https://static.wixstatic.com/media/11062b_e1117f9a7a1741ef955a84836121c4ad~mv2.png" alt="" /></a>
-          <a href="https://www.instagram.com/malalapto/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://static.wixstatic.com/media/11062b_94a6580a67244d17a4dc923b54b99fb4~mv2.png" alt="" /></a>
-          <a href="https://twitter.com/malalapto" target="_blank" rel="noopener" aria-label="Twitter"><img src="https://static.wixstatic.com/media/11062b_dddc4f38b4d0473c98be1489c5a83f30~mv2.png" alt="" /></a>
-        </nav>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="pto-info.html">About Us</a></li>
+          <li class="sub-item"><a href="pto-info.html">About Us</a></li>
           <li><a href="join-the-pto.html">Join the PTO</a></li>
           <li><a href="sponsorship.html">Sponsorship</a></li>
           <li><a href="calendar.html">Calendar</a></li>

@@ -115,40 +115,74 @@ nav {
 /* chevron */
 .nav-links > li.has-sub > a::after {
   content: '';
-  width: 0; height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 5px solid currentColor;
-  transition: transform .2s;
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .22s;
   flex-shrink: 0;
 }
-.nav-links > li.has-sub:hover > a::after { transform: rotate(180deg); }
+.nav-links > li.has-sub:hover > a::after { transform: rotate(-135deg) translateY(2px); }
 
-/* dropdown */
-.submenu {
+/* ── Mega panel ── */
+.mega-panel {
   display: none;
   position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  min-width: 200px;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 230px;
   background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--gray-200);
-  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.14), 0 0 0 1px rgba(0,0,0,.06);
+  padding: 8px;
   z-index: 300;
 }
-.nav-links > li.has-sub:hover .submenu { display: block; }
-.submenu a {
+/* invisible bridge — fills the gap so hover isn't lost moving mouse down */
+.mega-panel::after {
+  content: '';
+  position: absolute;
+  top: -12px; left: -20px; right: -20px;
+  height: 14px;
+}
+/* arrow pointer */
+.mega-panel::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px; height: 12px;
+  background: var(--white);
+  border-top: 1px solid rgba(0,0,0,.08);
+  border-left: 1px solid rgba(0,0,0,.08);
+}
+.nav-links > li.has-sub:hover .mega-panel { display: block; }
+.mega-link {
   display: flex;
   align-items: center;
-  padding: 11px 18px;
+  gap: 11px;
+  padding: 10px 14px;
+  border-radius: 10px;
   font-size: .875rem;
+  font-weight: 500;
   color: var(--gray-700);
+  white-space: nowrap;
   transition: background .15s, color .15s;
   min-height: 44px;
+  text-decoration: none;
 }
-.submenu a:hover { background: var(--purple-light); color: var(--purple); }
+.mega-link:hover { background: var(--purple-light); color: var(--purple); }
+.mega-icon {
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--gray-100);
+  border-radius: 7px;
+}
+.mega-link:hover .mega-icon { background: var(--purple-light); }
+.mega-divider { height: 1px; background: var(--gray-100); margin: 4px 8px; }
 
 /* ── Hamburger ── */
 .hamburger {
